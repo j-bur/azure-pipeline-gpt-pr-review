@@ -1,9 +1,9 @@
 {
   "id": "b42fa530-c4a6-11ed-87f6-d1f44a1fead1",
   "name": "GPTPullRequestReview",
-  "friendlyName": "Review PullRequest by GPT",
+  "friendlyName": "Review PullRequest by GPT using langchain",
   "description": "This task use OpenAi GPT model to review PullRequests",
-  "author": "Mustapha Larhrouch",
+  "author": "Mohamed Belkamel",
   "helpMarkDown": "[More Information](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review)",
   "category": "Utility",
   "visibility": [
@@ -19,7 +19,7 @@
   "instanceNameFormat": "GPTPullRequestReview $(message)",
   "inputs": [
     {
-      "name": "api_key",
+      "name": "apiKey",
       "type": "string",
       "label": "OpenAi Api key",
       "defaultValue": "",

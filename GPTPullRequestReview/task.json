@@ -1,10 +1,10 @@
 {
   "id": "b42fa530-c4a6-11ed-87f6-d1f44a1fead1",
-  "name": "GPTPullRequestReview",
+  "name": "GPTPullRequestReviewLangchain",
   "friendlyName": "Review PullRequest by GPT using langchain",
   "description": "This task use OpenAi GPT model to review PullRequests",
   "author": "Mohamed Belkamel",
-  "helpMarkDown": "[More Information](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review)",
+  "helpMarkDown": "[More Information](https://github.com/darklight147/azure-pipeline-gpt-pr-review)",
   "category": "Utility",
   "visibility": [
     "Build"

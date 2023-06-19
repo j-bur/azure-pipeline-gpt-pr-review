@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "GPTPullRequestReviewLangchain",
     "name": "GPT Pull Request Review",
-    "version": "1.0.2",
+    "version": "1.0.7",
     "publisher": "MohamedBelkamel",
     "galleryFlags": [
         "Public",

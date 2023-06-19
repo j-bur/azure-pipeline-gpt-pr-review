@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
   "id": "26ecb1ba-75cc-4fca-8b17-38654cf35084",
   "name": "GPTPullRequestReviewLangchain",
   "friendlyName": "Review PullRequest by GPT using langchain",
@@ -11,9 +12,9 @@
   ],
   "demands": [],
   "version": {
-    "Major": "1",
-    "Minor": "0",
-    "Patch": "2"
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 7
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "GPTPullRequestReview $(message)",
@@ -28,7 +29,7 @@
     }
   ],
   "execution": {
-    "Node10": {
+    "Node": {
       "target": "dist/review.js"
     }
   }

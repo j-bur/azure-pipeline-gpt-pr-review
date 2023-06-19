@@ -1,4 +1,3 @@
-import { AxiosError } from "axios";
 import tl from "azure-pipelines-task-lib/task";
 import { DeleteExistingComments } from "./DeleteExistingComments";
 import { GetChangedFiles } from "./GetChangedFiles";
@@ -25,7 +24,7 @@ async function run() {
     try {
       await DeleteExistingComments();
     } catch (error: any) {
-      if (error instanceof AxiosError) {
+      if (error.isAxiosError) {
         console.log({
           status: error.status,
           message: error.message,

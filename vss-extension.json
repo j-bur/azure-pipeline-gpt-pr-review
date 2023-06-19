@@ -1,56 +1,43 @@
 {
-    "manifestVersion": 1,
-    "id": "GPTPullRequestReviewLangchain",
-    "name": "GPT Pull Request Review",
-    "version": "1.0.34",
-    "publisher": "MohamedBelkamel",
-    "galleryFlags": [
-        "Public",
-        "Preview"
-    ],
-    "targets": [
-        {
-            "id": "Microsoft.VisualStudio.Services"
-        }
-    ],    
-    "description": "A task that reviews Pull Request using GPT model using langchain",
-    "categories": [
-        "Azure Pipelines"
-    ],
-    "icons": {
-        "default": "images/icon.png"        
-    },
-    "tags": [
-        "OpenAI",
-        "GPT",
-        "pullRequest",
-        "review",
-        "Langchain"
-    ],
-    "files": [
-        {
-            "path": "GPTPullRequestReview"
-        }
-    ],
-    "repository" : {
-        "type" : "git",
-        "uri" : "https://github.com/darklight147/azure-pipeline-gpt-pr-review.git"
-    },
-    "content": {
-        "details": {
-            "path": "overview.md"
-        }
-    },
-    "contributions": [
-        {
-            "id": "GPTPullRequestReviewLangchain",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "GPTPullRequestReview"
-            }
-        }
-    ]
+  "manifestVersion": 1,
+  "id": "GPTPullRequestReviewLangchain",
+  "name": "GPT Pull Request Review",
+  "version": "1.0.34",
+  "publisher": "MohamedBelkamel",
+  "galleryFlags": ["Public", "Preview"],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "A task that reviews Pull Request using GPT model using langchain",
+  "categories": ["Azure Pipelines"],
+  "icons": {
+    "default": "images/icon.png"
+  },
+  "tags": ["OpenAI", "GPT", "pullRequest", "review", "Langchain"],
+  "files": [
+    {
+      "path": "GPTPullRequestReview"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/darklight147/azure-pipeline-gpt-pr-review.git"
+  },
+  "content": {
+    "details": {
+      "path": "overview.md"
+    }
+  },
+  "contributions": [
+    {
+      "id": "GPTPullRequestReviewLangchain",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "GPTPullRequestReview"
+      }
+    }
+  ]
 }

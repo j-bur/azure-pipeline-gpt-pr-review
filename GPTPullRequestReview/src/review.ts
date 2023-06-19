@@ -5,17 +5,17 @@ import { reviewFile } from "./reviewFile";
 
 async function run() {
   try {
-    // const allowed = ["PullRequest", "Manual"].includes(
-    //   tl.getVariable("Build.Reason") as string
-    // );
+    const allowed = ["PullRequest", "Manual"].includes(
+      tl.getVariable("Build.Reason") as string
+    );
 
-    // if (allowed) {
-    //   tl.setResult(
-    //     tl.TaskResult.Skipped,
-    //     "This task should be run only when the build is triggered from a Pull Request."
-    //   );
-    //   return;
-    // }
+    if (allowed) {
+      tl.setResult(
+        tl.TaskResult.Skipped,
+        "This task should be run only when the build is triggered from a Pull Request."
+      );
+      return;
+    }
 
     // tl.setResult(tl.TaskResult.Failed, "No Api Key provided!");
 

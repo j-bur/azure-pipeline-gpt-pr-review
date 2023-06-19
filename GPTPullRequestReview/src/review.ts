@@ -19,9 +19,9 @@ async function run() {
 
     // tl.setResult(tl.TaskResult.Failed, "No Api Key provided!");
 
-    const targetBranch = `origin/${tl.getVariable(
-      "System.PullRequest.targetBranchName"
-    )}`;
+    const targetBranch = `origin/${tl
+      .getVariable("System.PullRequest.TargetBranch")
+      ?.replace("refs/heads/", "")}}`;
 
     const filesNames = await GetChangedFiles(targetBranch);
 

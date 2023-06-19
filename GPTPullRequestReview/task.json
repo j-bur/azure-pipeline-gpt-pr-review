@@ -28,7 +28,7 @@
     }
   ],
   "execution": {
-    "Node10": {
+    "Node18": {
       "target": "dist/review.js"
     }
   }

@@ -13,7 +13,7 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "A task that review Pull Request using GPT model using langchain",
+    "description": "A task that reviews Pull Request using GPT model using langchain",
     "categories": [
         "Azure Pipelines"
     ],

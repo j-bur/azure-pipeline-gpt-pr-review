@@ -1,5 +1,5 @@
 import { SimpleGitOptions, simpleGit } from "simple-git";
-import tl from "azure-pipelines-task-lib/task";
+import tl = require("azure-pipelines-task-lib/task");
 
 const gitOptions: Partial<SimpleGitOptions> = {
   baseDir: `${tl.getVariable("System.DefaultWorkingDirectory")}`,

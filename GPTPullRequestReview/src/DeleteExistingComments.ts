@@ -1,5 +1,5 @@
 import axios from "axios";
-import tl from "azure-pipelines-task-lib/task";
+import * as tl from "azure-pipelines-task-lib/task";
 import { getCollectionName } from "./getCollectionName";
 
 export async function DeleteExistingComments() {

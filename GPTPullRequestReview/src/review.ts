@@ -1,4 +1,4 @@
-import tl from "azure-pipelines-task-lib/task";
+import * as tl from "azure-pipelines-task-lib/task";
 import { DeleteExistingComments } from "./DeleteExistingComments";
 import { GetChangedFiles } from "./GetChangedFiles";
 import { reviewFile } from "./reviewFile";

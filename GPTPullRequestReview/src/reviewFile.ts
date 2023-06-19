@@ -1,4 +1,4 @@
-import tl from "azure-pipelines-task-lib/task";
+import * as tl from "azure-pipelines-task-lib/task";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { AddCommentToPR } from "./AddCommentToPR";
 import { chatPrompt } from "./prompt";

@@ -1,5 +1,5 @@
 {
-  "id": "b42fa530-c4a6-11ed-87f6-d1f44a1fead1",
+  "id": "26ecb1ba-75cc-4fca-8b17-38654cf35084",
   "name": "GPTPullRequestReviewLangchain",
   "friendlyName": "Review PullRequest by GPT using langchain",
   "description": "This task use OpenAi GPT model to review PullRequests",
@@ -29,7 +29,7 @@
   ],
   "execution": {
     "Node10": {
-      "target": "review.js"
+      "target": "dist/review.js"
     }
   }
 }

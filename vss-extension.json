@@ -2,8 +2,8 @@
     "manifestVersion": 1,
     "id": "GPTPullRequestReviewLangchain",
     "name": "GPT Pull Request Review",
-    "version": "0.0.1",
-    "publisher": "mbelkamel",
+    "version": "0.0.4",
+    "publisher": "MohamedBelkamel",
     "galleryFlags": [
         "Public",
         "Preview"
@@ -49,7 +49,7 @@
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "GPTPullRequestReviewLangchain"
+                "name": "GPTPullRequestReview"
             }
         }
     ]

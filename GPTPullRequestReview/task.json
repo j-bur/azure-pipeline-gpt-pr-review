@@ -26,6 +26,14 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Api key of OpenAi."
+    },
+    {
+      "name": "support_self_signed_certificate",
+      "type": "boolean",
+      "label": "Support self-signed certificate",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Select this option to support self-signed certificate."
     }
   ],
   "execution": {

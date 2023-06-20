@@ -21,7 +21,7 @@ async function run() {
 
     const targetBranch = `origin/${tl
       .getVariable("System.PullRequest.TargetBranch")
-      ?.replace("refs/heads/", "")}}`;
+      ?.replace("refs/heads/", "")}`;
 
     const filesNames = await GetChangedFiles(targetBranch);
 

@@ -11,10 +11,10 @@ export async function reviewFile(fileName: string, targetBranch: string) {
   const patch = await git.diff([targetBranch, "--", fileName]);
 
   try {
-    const apiKey = tl.getInput("apiKey", true) as string;
+    const openAIApiKey = tl.getInput("apiKey", true) as string;
 
     const chat = new ChatOpenAI({
-      openAIApiKey: apiKey,
+      openAIApiKey,
       modelName: "gpt-3.5-turbo",
     });
 

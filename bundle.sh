@@ -24,6 +24,10 @@ npx tsc -p .
 
 cd ../
 
+echo "removing old vsix file"
+
+rm -f *.vsix
+
 echo "Creating bundle"
 
 tfx extension create --manifest-globs vss-extension.json --rev-version --no-prompt

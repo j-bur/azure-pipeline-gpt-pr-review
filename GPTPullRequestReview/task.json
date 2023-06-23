@@ -22,10 +22,18 @@
     {
       "name": "apiKey",
       "type": "string",
-      "label": "OpenAi Api key",
+      "label": "Api key",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Api key of OpenAi."
+      "helpMarkDown": "Api key of OpenAi or Azure OpenAI."
+    },
+    {
+      "name": "aoi_endpoint",
+      "type": "string",
+      "label": "Azure OpenApi Endpoint",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Azure OpenApi Endpoint, leave empty to use default endpoint. (optional)"
     },
     {
       "name": "support_self_signed_certificate",

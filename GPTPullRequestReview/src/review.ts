@@ -20,21 +20,6 @@ async function run() {
 
     // tl.setResult(tl.TaskResult.Failed, "No Api Key provided!");
 
-    console.log(
-      "all variable",
-      JSON.stringify(
-        tl
-          .getVariables()
-          .filter(
-            (v) =>
-              v.name.startsWith("system") ||
-              v.value.includes("master") ||
-              v.value.includes("pr-review")
-          )
-          .map((v) => ({ name: v.name, value: v.value }))
-      )
-    );
-
     const targetBranch = getTargetBranchName();
 
     const filesNames = await GetChangedFiles(targetBranch);

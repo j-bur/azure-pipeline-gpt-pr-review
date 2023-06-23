@@ -2,6 +2,7 @@ import * as tl from "azure-pipelines-task-lib/task";
 import { DeleteExistingComments } from "./DeleteExistingComments";
 import { GetChangedFiles } from "./GetChangedFiles";
 import { reviewFile } from "./reviewFile";
+import { getTargetBranchName } from "./getTargetBranchName";
 
 async function run() {
   try {
@@ -34,9 +35,7 @@ async function run() {
       )
     );
 
-    const targetBranch = `origin/${tl.getVariable(
-      "SYSTEM_PULLREQUEST_TARGETBRANCH"
-    )}`;
+    const targetBranch = getTargetBranchName();
 
     const filesNames = await GetChangedFiles(targetBranch);
 

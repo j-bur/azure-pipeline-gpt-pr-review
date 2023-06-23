@@ -10,7 +10,7 @@ async function run() {
       tl.getVariable("Build.Reason") as string
     );
 
-    if (allowed) {
+    if (!allowed) {
       tl.setResult(
         tl.TaskResult.Skipped,
         "This task should be run only when the build is triggered from a Pull Request."

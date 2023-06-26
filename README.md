@@ -1,5 +1,10 @@
 # Use OpenAI GPT model to review Pull Requests for Azure Devops
+
 A task for Azure DevOps build pipelines to add GPT as PR reviewer
+
+## Example
+
+![sample](./images/sample.png)
 
 ## Installation
 
@@ -19,17 +24,17 @@ before use this task, make sure that the build service has permissions to contri
 
 ### Allow Task to access the system token
 
-#### Yaml pipelines 
+#### Yaml pipelines
 
 Add a checkout section with persistCredentials set to true.
 
 ```yaml
 steps:
-- checkout: self
-  persistCredentials: true
+  - checkout: self
+    persistCredentials: true
 ```
 
-#### Classic editors 
+#### Classic editors
 
 Enable the option "Allow scripts to access the OAuth token" in the "Agent job" properties :
 

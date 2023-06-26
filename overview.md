@@ -1,5 +1,9 @@
 # GPT Pull Request review Task for Azure Pipelines
 
+## Example
+
+![sample](./images/sample.png)
+
 The GPT Pull Request Review Task for Azure Pipelines is designed to use the GPT model from OpenAI to review Pull Requests and provide feedback as comments in the Pull Request.
 
 ## Setup
@@ -14,17 +18,17 @@ Before using this task, ensure that the build service has permissions to contrib
 
 Depending on the type of pipeline you are using, follow one of the two steps below:
 
-#### Yaml pipelines 
+#### Yaml pipelines
 
 Add a checkout section with persistCredentials set to true.
 
 ```yaml
 steps:
-- checkout: self
-  persistCredentials: true
+  - checkout: self
+    persistCredentials: true
 ```
 
-#### Classic editors 
+#### Classic editors
 
 Enable the option "Allow scripts to access the OAuth token" in the "Agent job" properties.
 
@@ -55,4 +59,3 @@ When the build is triggered from a Pull Request, the task will review it. If the
 ## Compatible with Linux Build Agents
 
 The tasks can execute on all supported build agent operating systems **including Linux and MacOS**.
-

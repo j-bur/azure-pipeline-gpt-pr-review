@@ -1,8 +1,8 @@
 import * as tl from "azure-pipelines-task-lib/task";
-import { DeleteExistingComments } from "./DeleteExistingComments";
 import { GetChangedFiles } from "./GetChangedFiles";
-import { reviewFile } from "./reviewFile";
 import { getTargetBranchName } from "./getTargetBranchName";
+import { reviewFile } from "./reviewFile";
+import { DeleteExistingComments } from "./DeleteExistingComments";
 
 async function run() {
   try {
@@ -35,6 +35,11 @@ async function run() {
       } else {
         console.log(error.message);
       }
+
+      tl.setResult(
+        tl.TaskResult.Failed,
+        `Failed task with error: ${error.message}`
+      );
     }
 
     for await (const fileName of filesNames) {

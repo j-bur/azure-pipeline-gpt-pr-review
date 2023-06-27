@@ -7,12 +7,14 @@
   "author": "Mohamed Belkamel",
   "helpMarkDown": "[More Information](https://github.com/darklight147/azure-pipeline-gpt-pr-review)",
   "category": "Utility",
-  "visibility": ["Build"],
+  "visibility": [
+    "Build"
+  ],
   "demands": [],
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 37
+    "Patch": 44
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "GPTPullRequestReview $(message)",

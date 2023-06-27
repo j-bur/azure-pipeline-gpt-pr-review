@@ -1,5 +1,5 @@
 import binaryExtensions from "binary-extensions";
-import glob from "glob";
+import * as glob from "glob";
 import { getFileExtension } from "./review";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
@@ -8,7 +8,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { TextLoader } from "langchain/document_loaders";
 
 export const LoadProjectContext = async (directory: string) => {
-  const files = glob.sync(`${directory}/**/*`, {
+  const files = glob.globSync(`${directory}/**/*`, {
     nodir: true,
   });
 
@@ -17,7 +17,7 @@ export const LoadProjectContext = async (directory: string) => {
   );
 
   console.log(
-    `Changed Files (excluding binary files) : \n ${nonBinaryFiles.join("\n")}`
+    `Project Files (excluding binary files) : \n ${nonBinaryFiles.join("\n")}`
   );
 
   const splitter = new RecursiveCharacterTextSplitter({

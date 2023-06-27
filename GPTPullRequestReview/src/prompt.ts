@@ -16,7 +16,10 @@ const template = `
           - Non changed code should not be reviewed
           - If there's no bugs, write 'No feedback'.
           - Use bullet points if you have multiple comments.
+          - Provide action items if you have any.
           - Keep in mind the wider context of the project.
+
+          Also recommend best practices and improvements to the code such as removing unused code and unused imports, removing commented out code, etc.
           
           Patch of the Pull Request to review:
           `;

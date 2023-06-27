@@ -7,14 +7,12 @@
   "author": "Mohamed Belkamel",
   "helpMarkDown": "[More Information](https://github.com/darklight147/azure-pipeline-gpt-pr-review)",
   "category": "Utility",
-  "visibility": [
-    "Build"
-  ],
+  "visibility": ["Build"],
   "demands": [],
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 47
+    "Patch": 48
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "GPTPullRequestReview $(message)",
@@ -26,22 +24,6 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Api key of OpenAi or Azure OpenAI."
-    },
-    {
-      "name": "aoi_endpoint",
-      "type": "string",
-      "label": "Azure OpenApi Endpoint",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "Azure OpenApi Endpoint, leave empty to use default endpoint. (optional)"
-    },
-    {
-      "name": "support_self_signed_certificate",
-      "type": "boolean",
-      "label": "Support self-signed certificate",
-      "defaultValue": "false",
-      "required": false,
-      "helpMarkDown": "Select this option to support self-signed certificate."
     }
   ],
   "execution": {

@@ -1,11 +1,11 @@
+import * as tl from "azure-pipelines-task-lib/task";
 import binaryExtensions from "binary-extensions";
 import * as glob from "glob";
-import { getFileExtension } from "./review";
-import { MemoryVectorStore } from "langchain/vectorstores/memory";
-import { OpenAIEmbeddings } from "langchain/embeddings/openai";
-import * as tl from "azure-pipelines-task-lib/task";
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { TextLoader } from "langchain/document_loaders";
+import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
+import { MemoryVectorStore } from "langchain/vectorstores/memory";
+import { getFileExtension } from "./review";
 
 export const LoadProjectContext = async (directory: string) => {
   const files = glob.globSync(`${directory}/**/*`, {

@@ -4,10 +4,14 @@ import { ChatOpenAI } from "langchain/chat_models/openai";
 import { AddCommentToPR } from "./AddCommentToPR";
 import { chatPrompt } from "./prompt";
 
-import { LoadProjectContext } from "./LoadProjectContext";
+import { VectorStoreRetriever } from "langchain/dist/vectorstores/base";
 import { git } from "./utils/git";
 
-export async function reviewFile(fileName: string, targetBranch: string) {
+export async function reviewFile(
+  fileName: string,
+  targetBranch: string,
+  context: VectorStoreRetriever
+) {
   console.log(`Start reviewing ${fileName} ...`);
 
   const patch = await git.diff([targetBranch, "--", fileName]);
@@ -26,11 +30,7 @@ export async function reviewFile(fileName: string, targetBranch: string) {
 
     // if (answer) await AddCommentToPR(fileName, answer);
 
-    const retriever = await LoadProjectContext(
-      tl.getVariable("System.DefaultWorkingDirectory") as string
-    );
-
-    const qa = RetrievalQAChain.fromLLM(chat, retriever);
+    const qa = RetrievalQAChain.fromLLM(chat, context);
 
     const prompt = await chatPrompt.formatPromptValue({ patch });
 

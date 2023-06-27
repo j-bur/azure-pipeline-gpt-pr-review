@@ -1,8 +1,9 @@
 import * as tl from "azure-pipelines-task-lib/task";
+import { DeleteExistingComments } from "./DeleteExistingComments";
 import { GetChangedFiles } from "./GetChangedFiles";
+import { LoadProjectContext } from "./LoadProjectContext";
 import { getTargetBranchName } from "./getTargetBranchName";
 import { reviewFile } from "./reviewFile";
-import { DeleteExistingComments } from "./DeleteExistingComments";
 
 async function run() {
   try {
@@ -42,8 +43,12 @@ async function run() {
       );
     }
 
+    const retriever = await LoadProjectContext(
+      tl.getVariable("System.DefaultWorkingDirectory") as string
+    );
+
     for await (const fileName of filesNames) {
-      await reviewFile(fileName, targetBranch);
+      await reviewFile(fileName, targetBranch, retriever);
     }
 
     tl.setResult(tl.TaskResult.Succeeded, "Pull Request reviewed.");

@@ -1,5 +1,5 @@
 import binaryExtensions from "binary-extensions";
-import { getFileExtension } from "./review";
+import { getFileExtension } from "./getFileExtension";
 import { git } from "./utils/git";
 
 export async function GetChangedFiles(targetBranch: string) {

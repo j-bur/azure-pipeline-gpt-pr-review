@@ -5,7 +5,7 @@ import { TextLoader } from "langchain/document_loaders";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
-import { getFileExtension } from "./review";
+import { getFileExtension } from "./getFileExtension";
 
 export const LoadProjectContext = async (directory: string) => {
   const files = glob.globSync(`${directory}/**/*`, {

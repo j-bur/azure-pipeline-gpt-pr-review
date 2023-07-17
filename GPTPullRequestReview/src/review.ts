@@ -7,7 +7,7 @@ import { reviewFile } from "./reviewFile";
 
 async function run() {
   try {
-    const allowed = ["PullRequest", "Manual"].includes(
+    const allowed = ["PullRequest"].includes(
       tl.getVariable("Build.Reason") as string
     );
 

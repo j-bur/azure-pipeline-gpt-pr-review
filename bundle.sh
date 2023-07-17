@@ -18,7 +18,7 @@ cat task.json | jq -r ".version .Major = $(echo $new_task_version | cut -d. -f1)
 
 mv task.json.tmp task.json
 
-yarn install --frozen-lockfile
+npm ci
 
 npx tsc -p .
 

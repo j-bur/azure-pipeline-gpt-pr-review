@@ -1,7 +1,7 @@
 import * as tl from "azure-pipelines-task-lib/task";
-import { DeleteExistingComments } from "./DeleteExistingComments";
-import { GetChangedFiles } from "./GetChangedFiles";
-import { LoadProjectContext } from "./LoadProjectContext";
+import { DeleteExistingComments } from "./deleteExistingComments";
+import { GetChangedFiles } from "./getChangedFiles";
+import { LoadProjectContext } from "./loadProjectContext";
 import { getTargetBranchName } from "./getTargetBranchName";
 import { reviewFile } from "./reviewFile";
 

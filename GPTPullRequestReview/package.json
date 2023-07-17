@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "lint": "eslint --ext .ts .",
+    "lint:fix": "eslint --ext .ts . --fix"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,10 @@
     "@types/node": "^18.15.3",
     "@types/node-fetch": "^2.6.4",
     "@types/q": "^1.5.5",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-check-file": "^2.5.0",
     "typescript": "*"
   }
 }

@@ -1,7 +1,7 @@
 import * as tl from "azure-pipelines-task-lib/task";
 import { RetrievalQAChain } from "langchain/chains";
 import { ChatOpenAI } from "langchain/chat_models/openai";
-import { AddCommentToPR } from "./AddCommentToPR";
+import { AddCommentToPR } from "./addCommentToPR";
 import { chatPrompt } from "./prompt";
 
 import { VectorStoreRetriever } from "langchain/dist/vectorstores/base";

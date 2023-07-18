@@ -14,18 +14,62 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 50
+    "Patch": 52
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "GPTPullRequestReview $(message)",
   "inputs": [
+    {
+      "name": "useAzure",
+      "type": "boolean",
+      "label": "Use Azure OpenAI",
+      "defaultValue": false,
+      "required": false,
+      "helpMarkDown": "If checked, use Azure OpenAI. If unchecked, use OpenAI."
+    },
     {
       "name": "apiKey",
       "type": "string",
       "label": "Api key",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Api key of OpenAi or Azure OpenAI."
+      "helpMarkDown": "Api key used for either OpenAI or Azure OpenAI. Required"
+    },
+    {
+      "name": "azureInstance",
+      "type": "string",
+      "label": "Azure OpenAI Instance Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The instance name for Azure OpenAI. Required if 'Use Azure OpenAI' is checked.",
+      "visibleRule": "useAzure == true"
+    },
+    {
+      "name": "azureDeployment",
+      "type": "string",
+      "label": "Azure Deployment Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The deployment name for Azure OpenAI. Required if 'Use Azure OpenAI' is checked.",
+      "visibleRule": "useAzure == true"
+    },
+    {
+      "name": "azureApiVersion",
+      "type": "string",
+      "label": "Azure OpenAI Api Version",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The api version for Azure OpenAI. Required if 'Use Azure OpenAI' is checked.",
+      "visibleRule": "useAzure == true"
+    },
+    {
+      "name": "modelName",
+      "type": "string",
+      "label": "GPT model name",
+      "defaultValue": "gpt-3.5-turbo",
+      "required": false,
+      "helpMarkDown": "The api version for Azure OpenAI. Required if 'Use Azure OpenAI' is checked.",
+      "visibleRule": "useAzure == true"
     }
   ],
   "execution": {

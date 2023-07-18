@@ -1,6 +1,6 @@
 import * as tl from "azure-pipelines-task-lib/task";
 import { RetrievalQAChain } from "langchain/chains";
-import { ChatOpenAI } from "langchain/chat_models/openai";
+import { AzureOpenAIInput, ChatOpenAI } from "langchain/chat_models/openai";
 import { AddCommentToPR } from "./addCommentToPR";
 import { chatPrompt } from "./prompt";
 
@@ -19,9 +19,19 @@ export async function reviewFile(
   try {
     const openAIApiKey = tl.getInput("apiKey", true) as string;
 
+    const isAzure = tl.getBoolInput("useAzure", true);
+
+    const azureOptions: AzureOpenAIInput = {
+      azureOpenAIApiInstanceName: tl.getInput("azureInstance"),
+      azureOpenAIApiDeploymentName: tl.getInput("azureDeployment"),
+      azureOpenAIApiKey: openAIApiKey,
+      azureOpenAIApiVersion: tl.getInput("azureApiVersion"),
+    };
+
     const chat = new ChatOpenAI({
-      openAIApiKey,
-      modelName: "gpt-3.5-turbo",
+      openAIApiKey: isAzure ? undefined : openAIApiKey,
+      modelName: tl.getInput("modelName", false) ?? "gpt-3.5-turbo",
+      ...azureOptions,
     });
 
     // const prompt = await chatPrompt.formatPromptValue({ patch });

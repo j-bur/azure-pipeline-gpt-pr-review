@@ -6,9 +6,12 @@ import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { getFileExtension } from "./getFileExtension";
+import path from "path";
 
 export const LoadProjectContext = async (directory: string) => {
-  const files = glob.globSync(`${directory}/**/*`, {
+  const pathToRecurse = path.join(directory, "**", "*");
+
+  const files = glob.globSync(pathToRecurse, {
     nodir: true,
   });
 

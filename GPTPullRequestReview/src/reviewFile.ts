@@ -24,7 +24,7 @@ export async function reviewFile(
     const azureOptions: AzureOpenAIInput = {
       azureOpenAIApiInstanceName: tl.getInput("azureInstance"),
       azureOpenAIApiDeploymentName: tl.getInput("azureDeployment"),
-      azureOpenAIApiKey: openAIApiKey,
+      azureOpenAIApiKey: isAzure ? openAIApiKey : undefined,
       azureOpenAIApiVersion: tl.getInput("azureApiVersion"),
     };
 

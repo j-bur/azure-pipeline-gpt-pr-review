@@ -14,11 +14,19 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 52
+    "Patch": 56
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "GPTPullRequestReview $(message)",
   "inputs": [
+    {
+      "name": "modelName",
+      "type": "string",
+      "label": "GPT model name",
+      "defaultValue": "gpt-3.5-turbo",
+      "required": false,
+      "helpMarkDown": "The api version for Azure OpenAI. Required if 'Use Azure OpenAI' is checked."
+    },
     {
       "name": "useAzure",
       "type": "boolean",
@@ -59,15 +67,6 @@
       "label": "Azure OpenAI Api Version",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The api version for Azure OpenAI. Required if 'Use Azure OpenAI' is checked.",
-      "visibleRule": "useAzure == true"
-    },
-    {
-      "name": "modelName",
-      "type": "string",
-      "label": "GPT model name",
-      "defaultValue": "gpt-3.5-turbo",
-      "required": false,
       "helpMarkDown": "The api version for Azure OpenAI. Required if 'Use Azure OpenAI' is checked.",
       "visibleRule": "useAzure == true"
     }

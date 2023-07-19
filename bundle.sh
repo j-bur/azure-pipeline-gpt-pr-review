@@ -20,7 +20,9 @@ mv task.json.tmp task.json
 
 npm ci
 
-npx tsc -p .
+npm run lint
+
+npm run build
 
 cd ../
 

@@ -38,7 +38,7 @@ async function run() {
       }
 
       tl.setResult(
-        tl.TaskResult.Failed,
+        tl.TaskResult.SucceededWithIssues,
         `Failed task with error: ${error.message}`
       );
     }

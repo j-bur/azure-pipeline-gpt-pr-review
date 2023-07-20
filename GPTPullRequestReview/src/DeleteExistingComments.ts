@@ -33,7 +33,7 @@ export async function DeleteExistingComments() {
     "SYSTEM.TEAMPROJECT"
   )} Build Service (${collectionName})`;
 
-  for (const thread of threadsWithContext as any[]) {
+  for await (const thread of threadsWithContext as any[]) {
     const commentsUrl = `${tl.getVariable(
       "SYSTEM.TEAMFOUNDATIONCOLLECTIONURI"
     )}${tl.getVariable(
@@ -51,7 +51,7 @@ export async function DeleteExistingComments() {
 
     const comments = commentsResponse.data as { value: [] };
 
-    for (const comment of comments.value.filter(
+    for await (const comment of comments.value.filter(
       (comment: any) => comment.author.displayName === buildServiceName
     ) as any[]) {
       const removeCommentUrl = `${tl.getVariable(

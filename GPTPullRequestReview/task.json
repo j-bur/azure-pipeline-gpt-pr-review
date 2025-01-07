@@ -3,8 +3,8 @@
   "name": "GPTPullRequestReview",
   "friendlyName": "Review PullRequest by GPT",
   "description": "This task use OpenAi GPT model to review PullRequests",
-  "author": "Mustapha Larhrouch",
-  "helpMarkDown": "[More Information](https://github.com/mlarhrouch/azure-pipeline-gpt-pr-review)",
+  "author": "James Burns",
+  "helpMarkDown": "[More Information](https://github.com/j-bur/azure-pipeline-gpt-pr-review)",
   "category": "Utility",
   "visibility": [
     "Build"

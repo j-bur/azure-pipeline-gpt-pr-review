@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
   "id": "26ecb1ba-75cc-4fca-8b17-38654cf35084",
-  "name": "GPTPullRequestReviewLangchain",
-  "friendlyName": "Review PullRequest by GPT using langchain",
+  "name": "GPTPullRequestReview",
+  "friendlyName": "Review PullRequest by GPT",
   "description": "This task use OpenAi GPT model to review PullRequests",
-  "author": "Mohamed Belkamel",
-  "helpMarkDown": "[More Information](https://github.com/darklight147/azure-pipeline-gpt-pr-review)",
+  "author": "James Burns",
+  "helpMarkDown": "[More Information](https://github.com/j-bur/azure-pipeline-gpt-pr-review)",
   "category": "Utility",
   "visibility": [
     "Build"
@@ -14,7 +14,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 58
+    "Patch": 59
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "GPTPullRequestReview $(message)",

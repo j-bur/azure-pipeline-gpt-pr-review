@@ -1,4 +1,5 @@
-import * as tl from "azure-pipelines-task-lib/task";
+// import * as tl from "azure-pipelines-task-lib/task";
+import { tl } from './utils/tl';
 
 export function getTargetBranchName() {
   let targetBranchName = tl.getVariable("System.PullRequest.TargetBranchName");

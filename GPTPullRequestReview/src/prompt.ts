@@ -2,7 +2,7 @@ import {
   ChatPromptTemplate,
   HumanMessagePromptTemplate,
   SystemMessagePromptTemplate,
-} from "langchain/prompts";
+} from "@langchain/core/prompts";
 
 const template = `
         Act as a code reviewer of a Pull Request, providing feedback on the code changes below.
@@ -24,7 +24,7 @@ const template = `
           Patch of the Pull Request to review:
           `;
 
-const chatPrompt = ChatPromptTemplate.fromPromptMessages([
+const chatPrompt = ChatPromptTemplate.fromMessages([
   SystemMessagePromptTemplate.fromTemplate(template),
   HumanMessagePromptTemplate.fromTemplate("{patch}"),
 ]);

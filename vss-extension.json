@@ -1,10 +1,10 @@
 {
   "manifestVersion": 1,
-  "id": "GPTPullRequestReviewLangchain",
+  "id": "GPTPullRequestReview",
   "name": "GPT Pull Request Review",
-  "version": "1.0.57",
-  "publisher": "MohamedBelkamel",
-  "galleryFlags": ["Public", "Preview"],
+  "version": "1.0.59",
+  "publisher": "JamesBurns-dev",
+  "public": false,
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "uri": "https://github.com/darklight147/azure-pipeline-gpt-pr-review.git"
+    "uri": "https://github.com/j-bur/azure-pipeline-gpt-pr-review.git"
   },
   "content": {
     "details": {
@@ -32,7 +32,7 @@
   },
   "contributions": [
     {
-      "id": "GPTPullRequestReviewLangchain",
+      "id": "GPTPullRequestReview",
       "type": "ms.vss-distributed-task.task",
       "targets": ["ms.vss-distributed-task.tasks"],
       "properties": {

@@ -8,7 +8,10 @@ export async function GetChangedFiles(targetBranch: string) {
   await git.fetch();
 
   const diffs = await git.diff([targetBranch, "--name-only"]);
+  console.log(`GetChangedFiles diffs: ${diffs}`);
   const files = diffs.split("\n").filter((line) => line.trim().length > 0);
+
+  console.log(`GetChangedFiles files: ${files}`);
 
   // remove binary files
   const nonBinaryFiles = files.filter(

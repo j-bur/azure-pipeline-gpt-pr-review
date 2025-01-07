@@ -1,8 +1,9 @@
-import * as tl from "azure-pipelines-task-lib/task";
+// import * as tl from "azure-pipelines-task-lib/task";
+import { tl } from './utils/tl';
 import binaryExtensions from "binary-extensions";
 import * as glob from "glob";
-import { TextLoader } from "langchain/document_loaders";
-import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { TextLoader } from "langchain/document_loaders/fs/text"; 
+import { OpenAIEmbeddings } from '@langchain/openai';
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { getFileExtension } from "./getFileExtension";
@@ -39,7 +40,7 @@ export const LoadProjectContext = async (directory: string) => {
   );
 
   // flatten docs
-  const docs = docsArray.reduce((acc, val) => acc.concat(val), []);
+  const docs = docsArray.reduce((acc: any[], val: any) => acc.concat(val), []);
 
   const embeddings = new OpenAIEmbeddings({
     openAIApiKey: tl.getInput("apiKey", true) as string,

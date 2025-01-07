@@ -1,56 +1,71 @@
-import * as tl from "azure-pipelines-task-lib/task";
-import { RetrievalQAChain } from "langchain/chains";
-import { AzureOpenAIInput, ChatOpenAI } from "langchain/chat_models/openai";
-import { AddCommentToPR } from "./addCommentToPR";
+import { tl } from './utils/tl';
+import { AzureChatOpenAI } from "@langchain/openai";
 import { chatPrompt } from "./prompt";
 
-import { VectorStoreRetriever } from "langchain/dist/vectorstores/base";
+const filesToIgnore = ['GPTPullRequestReview/package-lock.json'];
+
 import { git } from "./utils/git";
 
 export async function reviewFile(
   fileName: string,
   targetBranch: string,
-  context: VectorStoreRetriever
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  context: any
 ) {
   console.log(`Start reviewing ${fileName} ...`);
 
+  if (fileName in filesToIgnore) {
+    console.log('Will not review this file, as it is marked as ignorable.')
+    return;
+  }
+
+  console.log("targetBranch:")
+  console.log(targetBranch)
+
+  console.log("fileName:")
+  console.log(fileName)
+
   const patch = await git.diff([targetBranch, "--", fileName]);
+  console.log("patch:")
+    console.log(patch)
 
   try {
     const openAIApiKey = tl.getInput("apiKey", true) as string;
 
     const isAzure = tl.getBoolInput("useAzure", true);
 
-    const azureOptions: AzureOpenAIInput = {
-      azureOpenAIApiInstanceName: tl.getInput("azureInstance"),
-      azureOpenAIApiDeploymentName: tl.getInput("azureDeployment"),
-      azureOpenAIApiKey: isAzure ? openAIApiKey : undefined,
-      azureOpenAIApiVersion: tl.getInput("azureApiVersion"),
-    };
-
-    const chat = new ChatOpenAI({
-      openAIApiKey: isAzure ? undefined : openAIApiKey,
-      modelName: tl.getInput("modelName", false) ?? "gpt-3.5-turbo",
-      ...azureOptions,
-    });
-
-    // const prompt = await chatPrompt.formatPromptValue({ patch });
-
-    // const { text: answer } = await chat.call(prompt.toChatMessages());
-
-    // if (answer) await AddCommentToPR(fileName, answer);
-
-    const qa = RetrievalQAChain.fromLLM(chat, context);
-
+    const llm = new AzureChatOpenAI({
+         azureOpenAIApiKey: isAzure ? openAIApiKey : undefined,
+         azureOpenAIApiInstanceName: tl.getInput("azureInstance"),
+         azureOpenAIApiDeploymentName: tl.getInput("azureDeployment"),
+         azureOpenAIApiVersion: tl.getInput("azureApiVersion"),
+         temperature: 0,
+         maxTokens: undefined,
+         timeout: undefined,
+         maxRetries: 0,
+       });
+    
     const prompt = await chatPrompt.formatPromptValue({ patch });
+    console.log("prompt:")
+    console.log(prompt)
+    const qa = await llm.invoke(prompt);
+
+    console.log("qa:")
+    console.log(qa)
 
     const message = prompt.toChatMessages();
 
-    const flatMessage = message.map((m) => m.text).join("\n");
+    console.log('messages:')
+    console.log(message)
 
-    const { text: answer } = await qa.call({ query: flatMessage });
+    const flatMessage = message.map((m: { text: any; }) => m.text).join("\n");
 
-    if (answer) await AddCommentToPR(fileName, answer);
+    console.info('flatMessage:');
+    console.log(flatMessage);
+
+    // const { text: answer } = await qa.call({ query: flatMessage });
+
+    // if (answer) await AddCommentToPR(fileName, answer);
 
     console.log(`Review of ${fileName} completed.`);
   } catch (error: any) {

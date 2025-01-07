@@ -1,8 +1,18 @@
 import axios from "axios";
-import * as tl from "azure-pipelines-task-lib/task";
+// import * as tl from "azure-pipelines-task-lib/task";
+import { tl } from './utils/tl';
 import { getCollectionName } from "./getCollectionName";
 
 export async function DeleteExistingComments() {
+
+  // const allVariables = tl.getVariables();
+  // console.log('*-----------------------')
+  // console.log('Available variables:');
+  // allVariables.forEach((variable: { name: any; value: any; }) => {
+  //   console.log(`${variable.name}: ${variable.value}`);
+  // });
+  // console.log('-----------------------*')
+
   console.log("Start deleting existing comments added by the previous Job ...");
 
   const threadsUrl = `${tl.getVariable(
@@ -21,6 +31,10 @@ export async function DeleteExistingComments() {
   });
 
   const threads = threadsResponse.data as { value: [] };
+  console.log('---------------')
+  console.log(`DeleteExistingComments threads: ${threads}`);
+  console.log('---------------')
+  console.log(`DeleteExistingComments threads.value: ${threads.value}`);
   const threadsWithContext = threads.value.filter(
     (thread: any) => thread.threadContext !== null
   );
@@ -50,6 +64,9 @@ export async function DeleteExistingComments() {
     });
 
     const comments = commentsResponse.data as { value: [] };
+
+    console.log(`DeleteExistingComments comments: ${comments}`);
+
 
     for await (const comment of comments.value.filter(
       (comment: any) => comment.author.displayName === buildServiceName

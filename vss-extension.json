@@ -1,19 +1,16 @@
 {
     "manifestVersion": 1,
-    "id": "GPTPullRequestReview",
-    "name": "GPT Pull Request Review",
-    "version": "0.12.3",
-    "publisher": "jamesburns",
-    "galleryFlags": [
-        "Public",
-        "Preview"
-    ],
+    "id": "AOIPullRequestReview",
+    "name": "AOI Pull Request Reviewer",
+    "version": "0.0.3",
+    "publisher": "jamesburns-dev",
+    "public": false,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "A task that review Pull Request using GPT model from OpenAI",
+    "description": "Interaces with an Azure OpenAI deployment to review pull requests.",
     "categories": [
         "Azure Pipelines"
     ],
@@ -28,7 +25,7 @@
     ],
     "files": [
         {
-            "path": "GPTPullRequestReview"
+            "path": "AOIPullRequestReview"
         }
     ],
     "repository" : {
@@ -42,13 +39,13 @@
     },
     "contributions": [
         {
-            "id": "GPTPullRequestReview",
+            "id": "AOIPullRequestReview",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "GPTPullRequestReview"
+                "name": "AOIPullRequestReview"
             }
         }
     ]

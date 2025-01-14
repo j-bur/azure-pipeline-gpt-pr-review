@@ -1,0 +1,68 @@
+{
+  "id": "48464f63-829d-4944-bff5-1f6c06eaa2af",
+  "name": "AOIPullRequestReview",
+  "friendlyName": "Review Pull Requests with AOI",
+  "description": "Interaces with an AOI Deployment to review pull requests.",
+  "author": "James Burns",
+  "helpMarkDown": "[More Information](https://github.com/j-bur/azure-pipeline-gpt-pr-review)",
+  "category": "Utility",
+  "visibility": [
+    "Build"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "0",
+    "Patch": "3"
+  },
+  "minimumAgentVersion": "2.122.1",
+  "instanceNameFormat": "AOIPullRequestReview $(message)",
+  "inputs": [
+    {
+      "name": "ai_instructions",
+      "type": "string",
+      "label": "Custom AI Instructions",
+      "defaultValue": "Act as an experienced software developer who is reviewing a pull request. Comment on issues regarding clean code, possible bugs, and code smells.\nYou are provided a single file in the pull request's set of changes in a patch format.\nThe patch has the commit message in the subject line followed by the code changes (diffs) in a unidiff format.\n\nAs a peer reviewer, your task is:\n  - Review only added, edited or deleted lines.\n  - Assume any imported code functions perfectly.\n  - Your comments should be brief and concise.\n  - If there are no bugs, code smells, or other issues, write only 'No feedback.'\n  - If there are bugs, code smells, or other issues, don't write 'No feedback.'",
+      "required": false,
+      "helpMarkDown": "Custom instructions to give to the AI which override the existing directions on how it should behave as a reviewer (optional)."
+    },
+    {
+      "name": "api_key",
+      "type": "string",
+      "label": "Api key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Api key of OpenAi or Azure OpenAI."
+    },
+    {
+      "name": "aoi_endpoint",
+      "type": "string",
+      "label": "Azure OpenApi Endpoint",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Azure OpenApi Endpoint."
+    },
+    {
+      "name": "support_self_signed_certificate",
+      "type": "boolean",
+      "label": "Support self-signed certificate",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Select this option to support self-signed certificate."
+    }
+  ],
+  "execution": {
+    "Node10": {
+      "target": "dist/index.js",
+      "argumentFormat": ""
+    },
+    "Node16": {
+      "target": "dist/index.js",
+      "argumentFormat": ""
+    },
+    "Node20": {
+      "target": "dist/index.js",
+      "argumentFormat": ""
+    }
+  }
+}

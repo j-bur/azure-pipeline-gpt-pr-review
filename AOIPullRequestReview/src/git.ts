@@ -1,10 +1,30 @@
 import { SimpleGitOptions, SimpleGit, simpleGit } from 'simple-git';
-import * as tl from "azure-pipelines-task-lib/task";
+// import * as tl from "azure-pipelines-task-lib/task";
+import { tl } from './utils/tl';
 import binaryExtensions from 'binary-extensions';
 import { getFileExtension } from './utils';
 
+let DefaultWorkingDirectory = tl.getVariable("System.DefaultWorkingDirectory");
+
+function removeLastInstance(str: string | undefined, toRemove: string) {
+  if (!str) return;
+
+  const lastIndex = str.lastIndexOf(toRemove);
+
+  if (lastIndex === -1) {
+    return str;
+  }
+
+  return str.slice(0, lastIndex) + str.slice(lastIndex + toRemove.length);
+}
+
+if (tl.getVariable('IS_LOCAL_TEST') === 'true') {
+  console.info('Running locally!')
+  DefaultWorkingDirectory = removeLastInstance(process.env.INIT_CWD, '\\AOIPullRequestReview')
+}
+
 const gitOptions: Partial<SimpleGitOptions> = {
-  baseDir: `${tl.getVariable('System.DefaultWorkingDirectory')}`,
+  baseDir: DefaultWorkingDirectory,
   binary: 'git'
 };
 

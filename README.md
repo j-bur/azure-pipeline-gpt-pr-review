@@ -3,7 +3,7 @@ A task for Azure DevOps build pipelines to add GPT as PR reviewer
 
 ## Installation
 
-Installation can be done using [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=jamesburns.GPTPullRequestReview).
+Installation can be done using [Visual Studio MarketPlace](https://marketplace.visualstudio.com/items?itemName=jamesburns.AOIPullRequestReview).
 
 ## Usage
 

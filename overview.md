@@ -46,7 +46,7 @@ To use the GPT Pull Request Review Task, first install the extension in your Azu
 
 ### Add the task to the build pipeline
 
-After installing the extension, add the task to your build pipeline. Go to your build pipeline, click on the "+" icon to add a new task, and search for "Review PullRequest by GPT". Select it and add it to your pipeline.
+After installing the extension, add the task to your build pipeline. Go to your build pipeline, click on the "+" icon to add a new task, and search for "Review Pull Requests with AOI". Select it and add it to your pipeline.
 
 ### Configure the task
 

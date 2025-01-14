@@ -12,8 +12,8 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
   const defaultOpenAIModel = 'gpt-3.5-turbo';
   const patch = await git.diff([targetBranch, '--', fileName]);
   const instructions = tl.getInput('ai_instructions');
-  console.log('reviewFile instructions:')
-  console.log(instructions)
+  // console.log('reviewFile instructions:')
+  // console.log(instructions)
 
   // const instructions = `Act as a code reviewer of a Pull Request, providing feedback on possible bugs and clean code issues.
   //       You are provided with the Pull Request changes in a patch format.
@@ -61,12 +61,12 @@ export async function reviewFile(targetBranch: string, fileName: string, httpsAg
           }]
         })
       });
-      console.log('aoiEndpoint request:');
-      console.log(request);
+      // console.log('aoiEndpoint request:');
+      // console.log(request);
 
       const response = await request.json() as any;
-      console.log('aoiEndpoint response:');
-      console.log(response);
+      // console.log('aoiEndpoint response:');
+      // console.log(response);
 
       choices = response.choices;
     }

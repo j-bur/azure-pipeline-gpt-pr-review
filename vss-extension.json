@@ -2,9 +2,12 @@
     "manifestVersion": 1,
     "id": "AOIPullRequestReview",
     "name": "AOI Pull Request Reviewer",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "publisher": "jamesburns-dev",
-    "public": false,
+    "galleryFlags": [
+        "Public",
+        "Preview"
+    ],
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"

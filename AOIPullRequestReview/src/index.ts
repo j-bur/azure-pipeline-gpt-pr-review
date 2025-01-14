@@ -8,7 +8,7 @@ import { getChangedFiles } from './git';
 import https from 'https';
 
 export async function run() {
-  console.log("index.ts v0.0.3 run()");
+  console.log("index.ts v0.0.5 run()");
   try {
     if (tl.getVariable('Build.Reason') !== 'PullRequest') {
       console.log('Skipping - This task should be run only when the build is triggered from a Pull Request.')
@@ -16,7 +16,9 @@ export async function run() {
       return;
     }
 
-    console.log("index.ts: This is a pull request");
+    const instructions = tl.getInput('ai_instructions');
+    console.log('reviewFile instructions:')
+    console.log(instructions)
 
     let openai: OpenAIApi | undefined;
     const supportSelfSignedCertificate = tl.getBoolInput('support_self_signed_certificate');
